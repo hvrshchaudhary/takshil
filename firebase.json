@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "(takshil-bio-pharma)",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
