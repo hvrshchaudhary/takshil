@@ -8,11 +8,9 @@ const Wrapper = styled.div`
   margin: 200px 300px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  grid-template-areas: 
-  "left right right img"
-  "vision mission values ."
-  ;
-
+  grid-template-areas:
+    "left right right img"
+    "vision mission values .";
 `;
 const Left = styled.div`
   grid-area: left;
@@ -23,7 +21,7 @@ const Logo = styled.h3`
   letter-spacing: 1px;
 `;
 const SubHeading = styled.h1`
-  color:  #52939c;
+  color: #dea5c5;
 `;
 const Right = styled.div`
   font-size: 18px;
@@ -41,15 +39,13 @@ const Heading = styled.h3``;
 const Desc = styled.p``;
 const Vision = styled.div`
   font-weight: 700;
-  background-color: #52939c;
+  background-color: #dea5c5;
   padding: 70px 40px;
-  box-shadow:
-  0px 0.9px 3.1px rgba(0, 0, 0, 0.027),
-  0px 2.5px 8.6px rgba(0, 0, 0, 0.045),
-  0px 6px 20.8px rgba(0, 0, 0, 0.064),
-  0px 20px 69px rgba(0, 0, 0, 0.09);
+  box-shadow: 0px 0.9px 3.1px rgba(0, 0, 0, 0.027),
+    0px 2.5px 8.6px rgba(0, 0, 0, 0.045), 0px 6px 20.8px rgba(0, 0, 0, 0.064),
+    0px 20px 69px rgba(0, 0, 0, 0.09);
   transition: all 0.5s ease;
-  &:hover{
+  &:hover {
     transform: scale(1.035);
   }
   margin: 15px 0;
@@ -57,38 +53,32 @@ const Vision = styled.div`
   color: white;
 `;
 const Mission = styled.div`
-  font-weight: 500;
+  font-weight: 800;
   margin: 15px 0;
-  background-color: #8BCBD4;
+  background-color: #fad9ec;
   grid-area: mission;
   padding: 70px 40px;
-  box-shadow:
-  0px 0.9px 3.1px rgba(0, 0, 0, 0.027),
-  0px 2.5px 8.6px rgba(0, 0, 0, 0.045),
-  0px 6px 20.8px rgba(0, 0, 0, 0.064),
-  0px 20px 69px rgba(0, 0, 0, 0.09)
-;
+  box-shadow: 0px 0.9px 3.1px rgba(0, 0, 0, 0.027),
+    0px 2.5px 8.6px rgba(0, 0, 0, 0.045), 0px 6px 20.8px rgba(0, 0, 0, 0.064),
+    0px 20px 69px rgba(0, 0, 0, 0.09);
   color: white;
   transition: all 0.5s ease;
-  &:hover{
+  &:hover {
     transform: scale(1.035);
   }
 `;
 const Values = styled.div`
   font-weight: 300;
   background-color: white;
-  box-shadow:
-  0px 0.9px 3.1px rgba(0, 0, 0, 0.027),
-  0px 2.5px 8.6px rgba(0, 0, 0, 0.045),
-  0px 6px 20.8px rgba(0, 0, 0, 0.064),
-  0px 20px 69px rgba(0, 0, 0, 0.09)
-;
+  box-shadow: 0px 0.9px 3.1px rgba(0, 0, 0, 0.027),
+    0px 2.5px 8.6px rgba(0, 0, 0, 0.045), 0px 6px 20.8px rgba(0, 0, 0, 0.064),
+    0px 20px 69px rgba(0, 0, 0, 0.09);
   grid-area: values;
   padding: 70px 40px;
   margin: 15px 0;
-  color: black ;
+  color: black;
   transition: all 0.5s ease;
-  &:hover{
+  &:hover {
     transform: scale(1.035);
   }
 `;
@@ -101,57 +91,57 @@ const Img = styled.img`
   left: 0;
   bottom: 0;
   @keyframes MoveUpDown {
-  0%, 100% {
-    transform: translateY(0);
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-35px);
+    }
   }
-  50% {
-    transform: translateY(-35px);
-  }
-}
 `;
 
 const Intro = () => {
   return (
     <Container>
       <Wrapper>
-        <Img src="cherry-meditation.png" />
-          <Left>
-            <Logo>Takshil BioPharma pvt ltd</Logo>
-            <SubHeading>LEADING WORK THAT SAVES EVERYONE'S LIFE</SubHeading>
-          </Left>
-          <Right>
-            <Desc1>
-              Takshil BioPharma pvt ltd delivers Enzyme solutions and Probiotics
-              for customer applications in Biopharmaceutical, Fine Chemicals,
-              Food & Feed, and Cosmetics industries.
-            </Desc1>
-            <Desc2>
-              With a portfolio of over 20 Enzymes, 30 Probiotics and Probiotic
-              Blends Takshil BioPharma pvt ltd has a proven record of providing
-              customized solutions.
-            </Desc2>
-          </Right>
-          <Vision>
-            <Heading>Vision</Heading>
-            <Desc>
-              Our Vision is to become a Global Leader in all our principal
-              market.
-            </Desc>
-          </Vision>
-          <Mission>
-            <Heading>Mission</Heading>
-            <Desc>
-              Manufacture quality Enzymes, Probiotics and Probiotic blends at
-              affordable prices with global companies.
-            </Desc>
-          </Mission>
-          <Values>
-            <Heading>Values</Heading>
-            <Desc>
-              Performance driven work culture. Collaboration, Effective Team
-              work and Mutual respect.
-            </Desc>
-          </Values>
+        <Img src="art.png" />
+        <Left>
+          <Logo>Takshil BioPharma pvt ltd</Logo>
+          <SubHeading>LEADING WORK THAT SAVES EVERYONE'S LIFE</SubHeading>
+        </Left>
+        <Right>
+          <Desc1>
+            Takshil BioPharma pvt ltd delivers Enzyme solutions and Probiotics
+            for customer applications in Biopharmaceutical, Fine Chemicals, Food
+            & Feed, and Cosmetics industries.
+          </Desc1>
+          <Desc2>
+            With a portfolio of over 20 Enzymes, 30 Probiotics and Probiotic
+            Blends Takshil BioPharma pvt ltd has a proven record of providing
+            customized solutions.
+          </Desc2>
+        </Right>
+        <Vision>
+          <Heading>Vision</Heading>
+          <Desc>
+            Our Vision is to become a Global Leader in all our principal market.
+          </Desc>
+        </Vision>
+        <Mission>
+          <Heading>Mission</Heading>
+          <Desc>
+            Manufacture quality Enzymes, Probiotics and Probiotic blends at
+            affordable prices with global companies.
+          </Desc>
+        </Mission>
+        <Values>
+          <Heading>Values</Heading>
+          <Desc>
+            Performance driven work culture. Collaboration, Effective Team work
+            and Mutual respect.
+          </Desc>
+        </Values>
       </Wrapper>
     </Container>
   );

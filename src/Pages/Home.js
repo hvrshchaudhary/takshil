@@ -1,19 +1,20 @@
 import React from 'react';
-// import Categories from '../Components/Categories';
 import CategoryItem from '../Components/CategoryItem';
-import Footer from '../Components/Footer';
+import Conviniences from '../Components/Conviniences';
 import Intro from '../Components/Intro';
 import Navbar from '../Components/Navbar';
 import Slider from '../Components/Slider';
+import ContactUs from './ContactUs';
 
 const Home = () => {
   return (
   <>
     <Navbar/>
     <Slider/>
+    <Conviniences/>
     <CategoryItem/>
     <Intro/>
-    <Footer/>
+    <ContactUs/>
   </>
   );
 };

@@ -1,4 +1,13 @@
 import styled from "styled-components";
+import {
+  bigMobiles,
+  mediumLargeTablets,
+  mediumTablets,
+  smallerScreen,
+  smallerTablets,
+  smallScreen,
+  tablets,
+} from "../Responsive";
 
 const Hover1 = styled.div`
   height: 100%;
@@ -42,7 +51,6 @@ const Container = styled.div`
 const Heading = styled.h1`
   text-align: center;
   padding-top: 80px;
-  color: #529099;
 `;
 const Wrapper = styled.div`
   display: grid;
@@ -53,6 +61,18 @@ const Wrapper = styled.div`
   grid-template-areas:
     "TopLeft TopLeft Right"
     "L1 R1 Right";
+  ${smallScreen({ height: "90vh", margin: "135px 320px" })}
+  ${smallerScreen({ height: "75vh", margin: "125px 280px" })}
+${tablets({ height: "60vh", margin: "100px 275px" })}
+${mediumLargeTablets({ height: "55vh", margin: "80px 210px" })}
+${mediumTablets({ height: "50vh", margin: "80px 170px" })}
+${smallerTablets({ height: "40vh", margin: "80px 120px" })}
+${bigMobiles({
+    display: "flex",
+    flexDirection: "column",
+    margin: "20px 40px",
+    height: "120vh",
+  })}
 `;
 const TopLeft = styled.div`
   grid-area: TopLeft;
@@ -66,6 +86,22 @@ const TopLeft = styled.div`
     transform: translateY(0);
     transition: all 0.5s ease;
   }
+
+  ${bigMobiles({
+    height: "100%",
+    margin: "20px",
+    boxShadow:
+      "3.4px 2.2px 3.1px rgba(0, 0, 0, 0.027),9.3px 6.1px 8.6px rgba(0, 0, 0, 0.045),22.3px 14.8px 20.8px rgba(0, 0, 0, 0.064),74px 49px 69px rgba(0, 0, 0, 0.09)",
+  })}
+`;
+const HeadingTl = styled.h1`
+  text-align: center;
+  font-size: 24px;
+  padding-left: 20px;
+  text-align: left;
+  ${mediumTablets({ fontSize: "18px" })}
+  ${smallerTablets({ fontSize: "15px", paddingLeft: "10px  " })}
+${bigMobiles({ fontSize: "18px", paddingLeft: "10px  " })}
 `;
 const L1 = styled.div`
   grid-area: L1;
@@ -83,6 +119,7 @@ const L1 = styled.div`
     transform: translateY(0);
     transition: all 0.5s ease;
   }
+  ${bigMobiles({ height: "100%", margin: "20px" })}
 `;
 const R1 = styled.div`
   grid-area: R1;
@@ -100,6 +137,7 @@ const R1 = styled.div`
     transform: translateY(0);
     transition: all 0.5s ease;
   }
+  ${bigMobiles({ height: "100%", margin: "20px" })}
 `;
 const Right = styled.div`
   padding: 10px;
@@ -117,12 +155,14 @@ const Right = styled.div`
     transform: translateY(0);
     transition: all 0.5s ease;
   }
+  ${bigMobiles({ height: "100%", margin: "20px" })}
 `;
 const Img = styled.img`
   height: 100%;
   width: 100%;
   object-fit: contain;
   padding: 5px;
+  ${mediumTablets({ height: "90%", width: "90%" })}
 `;
 const Title1 = styled.div`
   color: white;
@@ -178,7 +218,7 @@ const Button1 = styled.button`
   color: #ffeea6;
   cursor: pointer;
   transition: all 0.5s ease;
-  &:hover{
+  &:hover {
     transform: scale(1.1);
   }
 `;
@@ -193,7 +233,7 @@ const Button2 = styled.button`
   color: #5499af;
   cursor: pointer;
   transition: all 0.5s ease;
-  &:hover{
+  &:hover {
     transform: scale(1.1);
   }
 `;
@@ -205,10 +245,10 @@ const Button3 = styled.button`
   margin: 10px 20px;
   padding: 10px;
   letter-spacing: 1px;
-  color:  #fed3d5;
+  color: #fed3d5;
   cursor: pointer;
   transition: all 0.5s ease;
-  &:hover{
+  &:hover {
     transform: scale(1.1);
   }
 `;
@@ -223,7 +263,7 @@ const Button4 = styled.button`
   color: #e33b2b;
   cursor: pointer;
   transition: all 0.5s ease;
-  &:hover{
+  &:hover {
     transform: scale(1.1);
   }
 `;
@@ -233,8 +273,9 @@ const CategoryItem = () => {
       <Heading>Hover on the images to see categories.</Heading>
       <Wrapper>
         <TopLeft>
+          <HeadingTl>Probiotics</HeadingTl>
           <Hover1>
-          <Title1>Probiotics</Title1>
+            <Title1>Probiotics</Title1>
             <Desc>
               Probiotics are live bacteria and yeasts that are good for you,
               especially your digestive system. We usually think of these as
@@ -247,8 +288,9 @@ const CategoryItem = () => {
           <Img src="probiotics.png" />
         </TopLeft>
         <L1>
+          <HeadingTl>Supplements</HeadingTl>
           <Hover2>
-          <Title2>Supplements</Title2>
+            <Title2>Supplements</Title2>
             <Desc>
               While dietary supplements cannot take the place of healthy eating
               habits, they can provide adequate amounts of essential nutrients
@@ -259,8 +301,9 @@ const CategoryItem = () => {
           <Img src="supplements2.png" />
         </L1>
         <R1>
+          <HeadingTl>Enzymes</HeadingTl>
           <Hover3>
-          <Title3>Enzymes</Title3>
+            <Title3>Enzymes</Title3>
             <Desc>
               Enzymes are proteins that act as biological catalysts. Catalysts
               accelerate chemical reactions. The molecules upon which enzymes
@@ -272,8 +315,9 @@ const CategoryItem = () => {
           <Img src="enzymes2.png" />
         </R1>
         <Right>
+          <HeadingTl>Nutraceuticals</HeadingTl>
           <Hover4>
-          <Title4>Nutraceuticals</Title4>
+            <Title4>Nutraceuticals</Title4>
             <Desc>
               A nutraceutical product may be defined as a substance, which has
               physiological benefit or provides protection against chronic
