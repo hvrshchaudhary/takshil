@@ -1,85 +1,43 @@
 import { css } from "styled-components";
 
-export const smallScreen = (props) => {
+export const lapTopL = (props) => {
     return css`
-        @media only screen and (max-width: 1670px) {
+        @media only screen and (max-width: 1441px) {
             ${props}
         }
     `;
 }
-export const smallerScreen = (props) => {
+export const laptop = (props) => {
     return css`
-        @media only screen and (max-width: 1500px) {
+        @media only screen and (max-width: 1025px) {
             ${props}
         }
     `;
 }
-export const tablets = (props) => {
+export const tablet = (props) => {
     return css`
-        @media only screen and (max-width: 1200px) {
+        @media only screen and (max-width: 769px) {
             ${props}
         }
     `;
 }
-export const mediumLargeTablets = (props) => {
+export const mobileL = (props) => {
     return css`
-        @media only screen and (max-width: 1100px) {
+        @media only screen and (max-width: 425px) {
             ${props}
         }
     `;
 }
-export const mediumTablets = (props) => {
+export const mobileM = (props) => {
     return css`
-        @media only screen and (max-width: 900px) {
+        @media only screen and (max-width: 390px) {
             ${props}
         }
     `;
 }
-export const smallTablets = (props) => {
+export const mobileS = (props) => {
     return css`
-        @media only screen and (max-width: 820px) {
-            ${props}
-        }
-    `;
-}
-export const smallerTablets = (props) => {
-    return css`
-        @media only screen and (max-width: 725px) {
-            ${props}
-        }
-    `;
-}
-export const massiveMobiles = (props) => {
-    return css`
-        @media only screen and (max-width: 650px) {
-            ${props}
-        }
-    `;
-}
-export const bigMobiles = (props) => {
-    return css`
-        @media only screen and (max-width: 562px) {
-            ${props}
-        }
-    `;
-}
-export const mobiles = (props) => {
-    return css`
-        @media only screen and (max-width: 470px) {
-            ${props}
-        }
-    `;
-}
-export const smallMobiles = (props) => {
-    return css`
-        @media only screen and (max-width: 440px) {
-            ${props}
-        }
-    `;
-}
-export const tinyMobiles = (props) => {
-    return css`
-        @media only screen and (max-width: 375px) {
+        @media only screen and (max-width: 360px) {
             ${props}
         }
     `;

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { laptop, lapTopL, mobileL, tablet } from "../Responsive";
 
 const Container = styled.div`
   font-family: "Urbanist", sans-serif;
@@ -11,6 +12,10 @@ const Wrapper = styled.div`
   grid-template-areas:
     "left right right img"
     "vision mission values .";
+    ${lapTopL({ margin:"200px 200px"})}
+    ${laptop({ margin:"200px 150px"})}
+  ${tablet({  margin:"120px 70px" })}
+  ${mobileL({ margin:"70px 30px" })}
 `;
 const Left = styled.div`
   grid-area: left;
@@ -19,9 +24,12 @@ const Left = styled.div`
 const Logo = styled.h3`
   font-family: "Lobster Two", cursive;
   letter-spacing: 1px;
+  ${tablet({ fontSize:"16px" })}
 `;
 const SubHeading = styled.h1`
-  color: #dea5c5;
+  color: black;
+  ${tablet({ fontSize:"24px" })}
+  ${mobileL({ fontSize:"21px" })}
 `;
 const Right = styled.div`
   font-size: 18px;
@@ -31,15 +39,25 @@ const Right = styled.div`
 `;
 const Desc1 = styled.p`
   font-weight: 500;
+  ${tablet({ fontSize:"16px" })}
+  ${mobileL({ fontSize:"14px", paddingBottom:"8px" })}
 `;
 const Desc2 = styled.p`
   color: gray;
+  ${tablet({ fontSize:"16px" })}
+  ${mobileL({ fontSize:"14px" })}
 `;
-const Heading = styled.h3``;
-const Desc = styled.p``;
+const Heading = styled.h3`
+  ${mobileL({ fontSize:"16px" })}
+
+`;
+const Desc = styled.p`
+  ${tablet({ fontSize:"16px" })}
+  ${mobileL({ fontSize:"13px", fontWeight:"400" })}
+`;
 const Vision = styled.div`
   font-weight: 700;
-  background-color: #dea5c5;
+  background-color: #999999;
   padding: 70px 40px;
   box-shadow: 0px 0.9px 3.1px rgba(0, 0, 0, 0.027),
     0px 2.5px 8.6px rgba(0, 0, 0, 0.045), 0px 6px 20.8px rgba(0, 0, 0, 0.064),
@@ -51,11 +69,12 @@ const Vision = styled.div`
   margin: 15px 0;
   grid-area: vision;
   color: white;
+  ${mobileL({ padding:"30px 20px",  })}
 `;
 const Mission = styled.div`
   font-weight: 800;
   margin: 15px 0;
-  background-color: #fad9ec;
+  background-color: #cccccc;
   grid-area: mission;
   padding: 70px 40px;
   box-shadow: 0px 0.9px 3.1px rgba(0, 0, 0, 0.027),
@@ -66,6 +85,7 @@ const Mission = styled.div`
   &:hover {
     transform: scale(1.035);
   }
+  ${mobileL({ padding:"30px 20px",  })}
 `;
 const Values = styled.div`
   font-weight: 300;
@@ -81,12 +101,13 @@ const Values = styled.div`
   &:hover {
     transform: scale(1.035);
   }
+  ${mobileL({ padding:"30px 20px",  })}
 `;
 const Img = styled.img`
   max-width: 250px;
   min-height: 200px;
   align-self: flex-end;
-  animation: MoveUpDown 2.8s ease-in-out infinite alternate-reverse both;
+  animation: MoveUpDown 3s ease-in-out infinite alternate-reverse both;
   position: relative;
   left: 0;
   bottom: 0;
@@ -96,7 +117,7 @@ const Img = styled.img`
       transform: translateY(0);
     }
     50% {
-      transform: translateY(-35px);
+      transform: translateY(-25px);
     }
   }
 `;
@@ -105,7 +126,7 @@ const Intro = () => {
   return (
     <Container>
       <Wrapper>
-        <Img src="art.png" />
+        <Img src="intro.svg" />
         <Left>
           <Logo>Takshil BioPharma pvt ltd</Logo>
           <SubHeading>LEADING WORK THAT SAVES EVERYONE'S LIFE</SubHeading>

@@ -1,46 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { mediumLargeTablets } from "../Responsive";
+import { laptop, mobileL, mobileM, mobileS, tablet } from "../Responsive";
 
 const Container = styled.div`
   height: 100vh;
   display: flex;
-  flex-direction: row;
-`;
-const Left = styled.div`
-  height: 100vh;
-  flex-grow: 1;
-  display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  margin-top: 100px;
 `;
 const Top = styled.div`
   flex: 1;
   height: 50vh;
   padding-left: 8vw;
-  width: 42vw;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  ${tablet({ paddingLeft: "0" })}
 `;
-const Form = styled.form`
+const Left = styled.div`
+  height: 50vh;
+  width: 50%;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: 100%;
-  flex-wrap: wrap;
-  margin: 40px;
+  ${mobileL({ width:"100%"})}
+`;
+
+const Form = styled.form`
+display: flex;
+flex-direction: column;
+width: 100%;
+${tablet({ paddingLeft:"5vw" })}
 `;
 const Input = styled.input`
   border: 1px solid black;
-  width: 95%;
+  width: 75%;
   height: 7%;
   margin: 20px 10px 0 0;
   padding: 8px;
+  ${tablet({ width: "60%" })}
+  ${mobileL({ width:"75%"})}
 `;
 const Input1 = styled.input`
   border: 1px solid black;
-  width: 95%;
-  height: 27%;
+  width: 75%;
+  height: 80px;
   margin: 20px 10px 0 0;
   padding: 8px;
+  ${tablet({ width: "60%" })}
+  ${mobileL({ width:"75%"})}
 `;
 const Button = styled.button`
   background-color: white;
@@ -60,15 +69,37 @@ const Button = styled.button`
   &:hover {
     transform: scale(1.1);
   }
+  ${tablet({ width: "45%" })}
+`;
+const Right = styled.div`
+  flex-grow: 1;
+  display: flex;
+  font-family: "Nunito Sans", sans-serif;
+  align-items: center;
+  justify-content: center;
+`;
+const Top1 = styled.div`
+  flex: 1;
+  flex-wrap: wrap;
+  height: 50vh;
+  width: 50vw;
+  ${mobileL({ display: "none" })}
+`;
+const ImgT = styled.img`
+  object-fit: contain;
+  height: 80%;
+  width: 60%;
+  padding: 20px;
+${tablet({ width:"70%" })}
 `;
 const Bottom = styled.div`
   flex: 1;
-  background-color: #dea5c5;
+  background-color: #999999;
   display: flex;
   align-items: start;
   height: 50vh;
-  width: 50vw;
-  flex-direction: column;
+  width: 100vw;
+  flex-direction: row;
   font-family: "Nunito Sans", sans-serif;
 `;
 
@@ -78,7 +109,8 @@ const Heading = styled.h1`
   font-weight: 900;
   padding-left: 10vw;
   margin-top: 17px;
-${mediumLargeTablets({fontSize:"68px"})}
+  ${tablet({ fontSize: "51px", paddingLeft:"5vw" })}
+  ${mobileL({ fontSize:"30px"})}
 `;
 const SubText = styled.div`
   color: white;
@@ -87,7 +119,8 @@ const SubText = styled.div`
   font-weight: 600;
   max-width: 390px;
   font-size: 28px;
-${mediumLargeTablets({fontSize:"24px"})}
+  ${tablet({ fontSize: "24px", paddingLeft:"5vw" })}
+  ${mobileL({ fontSize:"16px"})}
 `;
 const Desc = styled.div`
   padding-left: 10vw;
@@ -95,7 +128,7 @@ const Desc = styled.div`
   font-weight: 250;
   margin-top: 17px;
   color: white;
-${mediumLargeTablets({ display:"none" })}
+  ${laptop({ display: "none" })}
 `;
 const Logo = styled.div`
   font-family: "Lobster Two", cursive;
@@ -108,34 +141,23 @@ const Logo = styled.div`
   width: 200px;
   height: 100px;
   flex-wrap: wrap;
+${tablet({ paddingLeft:"5vw" })}
+${mobileL({ fontSize:"26px"})}
 `;
-const Right = styled.div`
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  font-family: "Nunito Sans", sans-serif;
-  align-items: center;
-`;
-const Top1 = styled.div`
-  flex: 1;
-  flex-wrap: wrap;
-  height: 50vh;
-  width: 50vw;
-`;
-const Img = styled.img`
-  object-fit: contain;
-  height: 100%;
-  width: 100%;
-`;
+
+
 const Bottom1 = styled.div`
   flex: 1;
-  background-color: #dea5c5;
+  background-color: #999999;
   height: 50vh;
   width: 50vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  ${mobileL({ justifyContent:"flex-start", marginTop:"35px" })}
+  ${mobileM({ marginTop:"0" })}
+
 `;
 const Email = styled.div`
   background-color: white;
@@ -148,20 +170,40 @@ const Email = styled.div`
   flex-direction: row;
   cursor: pointer;
   transition: all 0.5s ease;
-  &:hover{
+  &:hover {
     transform: scale(1.1);
   }
+  ${tablet({ height: "8%" })}
+  ${mobileL({ height:"3%", alignItems:"center" })}
+  ${mobileM({ marginTop:"35px" })}
 `;
-const Icon = styled.div``;
+
+const Icon = styled.div`
+  ${mobileL({ flex:"1" })}
+  ${mobileL({ display:"none" })}
+`;
+const Img = styled.img`
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+`;
 const Myid = styled.div``;
 const Text = styled.h3`
-  color: #dea5c5;
+  color: black;
+  padding-left: 10px;
+  ${laptop({ fontSize: "15px" })}
+  ${tablet({ fontSize: "18px", fontWeight: "300" })}
+  ${mobileL({ fontSize:"15px" })}
 `;
 const LinkToEmail = styled.div`
+  padding-left: 10px;
   color: gray;
+  ${laptop({ fontSize: "12px" })}
+  ${tablet({ display: "none" })}
 `;
 const Phone = styled.div`
   background-color: white;
+  padding-left: 10px;
   cursor: pointer;
   width: 40%;
   height: 15%;
@@ -171,62 +213,101 @@ const Phone = styled.div`
   display: flex;
   flex-direction: row;
   transition: all 0.5s ease;
-  &:hover{
+  &:hover {
     transform: scale(1.1);
   }
+  ${tablet({ height: "8%" })}
+  ${mobileL({ height:"3%", alignItems:"center" })}
 `;
-
 const ContactUs = () => {
+  const [fullName, setFullName] = useState();
+  const [email, setEmail] = useState();
+  const [message, setMessage] = useState();
+  // function sendEmail() {
+  //   <script src="https://smtpjs.com/v3/smtp.js"></script>
+  //   Email.send({
+  //     Host: "smtp.gmail.com",
+  //     Username : "yashchaudhary0717@gmail.com",
+  //     Password : "8750904397",
+  //     To : 'yashchaudhary143@gmail.com',
+  //     From : "yashchaudhary0717@gmail.com",
+  //     Subject : "enquiry",
+  //     Body : {fullName,email,message},
+  //     }).then(
+  //       message => alert("mail sent successfully")
+  //     );
+  // }
   return (
     <>
       <Container>
-        <Left>
-          <Top>
+        <Top>
+          <Left>
             <Form>
-              <Input placeholder="Full Name" />
-              <Input placeholder="Email" />
-              <Input1 placeholder="Message" />
+              <Input
+                placeholder="Full Name"
+                onChange={(event) => {
+                  setFullName(event.target.value);
+                }}
+              />
+              <Input
+                placeholder="Email"
+                onChange={(event) => {
+                  setEmail(event.target.value);
+                }}
+              />
+              <Input1
+                placeholder="Message"
+                onChange={(event) => {
+                  setMessage(event.target.value);
+                }}
+              />
               <Button>Send!</Button>
             </Form>
-          </Top>
-          <Bottom>
-            <Heading>Get in Touch</Heading>
-            <SubText>
-              Hey! We are looking forward to start a project with you!
-            </SubText>
-            <Desc>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Asperiores quod earum doloremque tempore. Natus iste inventore
-              impedit iure alias odit delectus nihil ad ex.
-            </Desc>
-            <Logo>Takshil</Logo>
-          </Bottom>
-        </Left>
-        <Right>
-          <Top1>
-            <Img src="contact2.png" />
-          </Top1>
+          </Left>
+          <Right>
+            <Top1>
+              <ImgT src="contacth.svg" />
+            </Top1>
+          </Right>
+        </Top>
+        <Bottom>
+          <Left>
+
+          <Heading>Get in Touch</Heading>
+          <SubText>
+            Hey! We are looking forward to start a project with you!
+          </SubText>
+          <Desc>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores
+            quod earum doloremque tempore. Natus iste inventore impedit iure
+            alias odit delectus nihil ad ex.
+          </Desc>
+          <Logo>Takshil</Logo>
+          </Left>
+          <Right>
           <Bottom1>
-            <Email>
+            <Email onClick={()=>{window.location.href = "mailto:yashchaudhary143@gmail.com"}}>
               <Icon>
-                <Img src="mail.png" />
+                <Img src="mailboxBlack.svg" />
               </Icon>
               <Myid>
-                <Text>Mail us at</Text>
+                <Text>Mail us</Text>
                 <LinkToEmail>youremail@takshil.com</LinkToEmail>
               </Myid>
             </Email>
-            <Phone>
+            <Phone onClick={()=>{window.location.href = "tel:8178993169"}}>
               <Icon>
-                <Img src="phone1.png" />
+                <Img src="contact1.svg" />
               </Icon>
               <Myid>
-              <Text>Call us</Text>
-              <LinkToEmail>(0120)-2307854</LinkToEmail>
+                <Text>Call us</Text>
+                <LinkToEmail>(0120)-2307854</LinkToEmail>
               </Myid>
             </Phone>
           </Bottom1>
         </Right>
+        </Bottom>
+        
       </Container>
     </>
   );

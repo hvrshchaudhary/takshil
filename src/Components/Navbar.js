@@ -1,110 +1,79 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  bigMobiles,
-  mediumTablets,
-  smallMobiles,
-  smallTablets,
-  tablets,
-} from "../Responsive";
+import { laptop, mobileL, mobileM, mobileS, tablet } from "../Responsive";
 
 const Container = styled.div`
   width: 100vw;
   height: 60px;
   padding-top: 10px;
   padding-bottom: 40px;
-  /* background-image: linear-gradient(
-    to right,
-    #518289,
-    #51858c,
-    #52878f,
-    #528a93,
-    #528d96,
-    #528f98,
-    #529099,
-    #52929b,
-    #52939c,
-    #52939c,
-    #51949d,
-    #51949d
-  ); */
-  ${tablets({ height: "50px", paddingTop: "6px" })}
-  ${mediumTablets({ height: "40px", paddingTop: "4px" })}
-  ${smallTablets({ height: "30px", paddingTop: "2px" })}
-  ${bigMobiles({ backgroundColor:"white", backgroundImage:"none" })}
+  ${mobileS({ padding:"20px"  })}
 `;
 
 const Wrapper = styled.div`
   margin: 20px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
+  ${mobileL({ margin:"0" })}
 `;
 
 const Left = styled.div`
   flex: 1;
   display: flex;
+  flex-direction: row;
   align-items: baseline;
   justify-content: center;
-  font-family: "Lobster Two", cursive;
-  ${bigMobiles({
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "flex-start",
-  })}
-
+  ${mobileL({ justifyContent:"flex-start", paddingLeft:"12px" })}
+  
 `;
 
 const Logo = styled.h1`
   font-weight: bold;
   font-size: 50px;
-  /* color: white; */
+  font-family: "Lobster Two", cursive;
   color: black;
-  ${tablets({ fontSize: "40px" })}
-  ${mediumTablets({ fontSize: "30px" })}
-  ${smallTablets({ fontSize: "28px" })}
-  ${bigMobiles({ color:"black"})}
+  ${laptop({ fontSize:"35px" })}
+  ${tablet({ fontSize:"28px" })}
+  ${mobileL({ fontSize:"22px" })}
 `;
 const SubLogo = styled.h3`
-  font-size: 24px;
-  ${tablets({ fontSize: "20px" })}
-  ${mediumTablets({ fontSize: "16px" })}
-  ${smallTablets({ fontSize: "16px" })}
-  ${smallMobiles({ display:"none"})}
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: black;
+  font-family: "Quicksand", sans-serif;
+  ${laptop({ fontSize:"17px" })}
+  ${tablet({ fontSize:"14px"})}
+  ${mobileM({ fontSize:"10px" })}
+  ${mobileS({ display:"none" })}
 `;
 const Right = styled.div`
   flex: 1;
   display: flex;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   font-family: "Urbanist", sans-serif;
-  ${bigMobiles({
-    display:"flex",
-    flexDirection:"row",
-    justifyContent:"flex-end",
-    alignItems:"center"
-  })}
 
 `;
 const MenuItem = styled.div`
   font-size: 24px;
   cursor: pointer;
-  /* color: white; */
   color: black;
   display: flex;
   flex-direction: column;
   margin-left: 25px;
   font-weight: 500;
-  ${tablets({ fontSize: "20px" })}
-  ${mediumTablets({ fontSize: "16px" })}
-  ${smallTablets({ fontSize: "14px", marginLeft: "7px" })}
-  ${bigMobiles({display:"none"})}
+  ${laptop({ fontSize:"20px" })}
+  ${tablet({ fontSize:"16px", margin:"3px" })}
+  ${mobileL({ display:"none" })}
+
 `;
 const Button = styled.button`
   background-color: white;
   border: 1px solid black;
   padding: 9px 17px;
   border-radius: 7px;
-  /* color: #51949d; */
   color: black;
   cursor: pointer;
   font-size: 18px;
@@ -116,13 +85,13 @@ const Button = styled.button`
   &:hover {
     transform: scale(1.1);
   }
-  ${tablets({ padding: "7px 16px", fontSize: "16px" })}
-  ${mediumTablets({ padding: "5px 15px", fontSize: "14px" })}
-  ${smallTablets({ padding: "4px 12px", fontSize: "11px" })}
-  ${bigMobiles({padding:"7px 16px", color:"black", border:"1px solid black", marginLeft:"0"})}
+  ${tablet({ fontSize:"12px" })}
 `;
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const goToContactUs = ()=>{
+    props.contactRef.current.scrollIntoView({behavior: "smooth", block: "start"})
+  }
   return (
     <Container>
       <Wrapper>
@@ -132,9 +101,9 @@ const Navbar = () => {
         </Left>
         <Right>
           <MenuItem>Home</MenuItem>
-          <MenuItem>About Us</MenuItem>
-          <MenuItem>Products</MenuItem>
-          <Button>Contact Us</Button>
+          <MenuItem onClick={()=>{props.aboutRef.current.scrollIntoView({behavior: "smooth", block: "start"})}}>About Us</MenuItem>
+          <MenuItem onClick={()=>{props.productRef.current.scrollIntoView({behavior: "smooth", block: "start"})}}>Products</MenuItem>
+          <Button onClick={()=>{props.contactRef.current.scrollIntoView({behavior: "smooth", block: "start"})}}>Contact Us</Button>
         </Right>
       </Wrapper>
     </Container>
